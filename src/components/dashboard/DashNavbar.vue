@@ -11,9 +11,9 @@
                     </form>
                 </div>
                 <div class="dash__navbar__menu">
-                    <router-link :to="{name : dashboard }" tag="li" active-class="nav__link active" exact>Dashboard</router-link>
-                    <router-link :to="{name : doctors }" tag="li" active-class="nav__link" exact>Doctors</router-link>
-                    <router-link :to="{name : appointments }" tag="li" active-class="nav__link" exact>Appointments</router-link>
+                    <router-link to="/dashone" tag="li" active-class="nav__link active" exact>Dashboard</router-link>
+                    <router-link to="/dashtwo" tag="li" active-class="nav__link" exact>Doctors</router-link>
+                    <router-link to="/dashboardthree" tag="li" active-class="nav__link" exact>Appointments</router-link>
                     <a href=""><img src="../../assets/img/dashboard/icons/Chat.png" alt=""></a>
                     <a href="" class=""><img src="../../assets/img/dashboard/icons/call.png" alt=""></a>
                 </div>

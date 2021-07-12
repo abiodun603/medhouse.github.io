@@ -40,7 +40,7 @@
                     </div>
                     <div>
                         <router-link to="/forget-password"><h3>Forget Password?</h3></router-link>
-                        <router-link to="/"><h3>Home</h3></router-link>
+                        <!-- <router-link to="/"><h3>Home</h3></router-link> -->
                         <!-- Forget Password? -->
                     </div>
                     </div>
@@ -67,7 +67,7 @@
                 </div>
 
             </div>
-                <!-- =============== End Form =============== -->
+            <!-- =============== End Form =============== -->
         </div>
     </div>
 </template>

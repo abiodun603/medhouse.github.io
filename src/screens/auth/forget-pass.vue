@@ -14,18 +14,38 @@
                     <p>Please enter your email address and we'll send you a link to reset your password.</p>
                 </div>
 
-                <form class="signin-form">
+                <form class="signin-form" @submit.prevent="onSubmit">
                     <label for="">Email address</label>
-                    <div class="input-field">
-                    <img src="../../assets/img/icons/EnvelopeSimple.png" alt="" class="fa-envelope">
-                    <input type="text" placeholder="Email Address" v-model="authData.email">
+                    <div class="input-field form-group" :class="{ 'form-group--error': v$.firstname.$error}">
+                        <img src="../../assets/img/icons/EnvelopeSimple.png" alt="" class="fa-envelope">
+                        <input name="text" placeholder="Email Address" class="form-control" v-model.trim="v$.firstname.$model" :class="{'is-invalid': v$.firstname.$error, 'is-valid': !v$.firstname.$invalid}" >
                     </div>
-                    <button class="btn sign-up" :disabled = "getStatus" @click="handleForgotPassword()">Submit</button>
+                    <span class="error"  v-if=" v$.firstname.$error"> {{v$.firstname.$errors[0].$message}}</span> 
+                    <!-- <span class="error" v-if="!v$.firstname.minLength">First name is must have at most {{v$.firstname.$params.minLength.min}} letters.</span>  -->
+                    <tree-view :data="v$.firstname" :options="{rootObjectKey: 'v$.firstname', maxDepth: 2}"></tree-view>
+
+
+
+                    <!-- <div class="" v-if="!v$.firstname.minLength">First name is valid</div> -->
+
+                    <!-- <div class="invalid-feedback d-block"> -->
+                        <!-- <span >First name is required.</span> -->
+                        <!-- <span v-if="!v$.firstname.minLength" style="color: red">First name is must have at least letters.</span>
+                        <span v-if="!v$.firstname.maxLength" style="color: red">First name is must have at most letters.</span> -->
+                    <!-- </div> -->
+                    <!-- <div class="valid-feedback d-block" style="color: red">Your first name is valid!</div> -->
+                    <!-- <div >
+                                <ErrorMessage name="email"/>
+                    </div> -->
+
+                    <button class="btn sign-up">Submit</button>
+
+                    <!-- <button class="btn sign-up" :disabled = "getStatus" @click="handleForgotPassword()">Submit</button> -->
                 </form>
 
                 <div class="terms">
                     <div class="copy">
-                    &copy; 2021 SDG ALL rights reserved.
+                        &copy; 2021 SDG ALL rights reserved.
                     </div>
                     <div class="privacy">
                     Terms of Service. Privacy Policy
@@ -46,14 +66,27 @@
 <script>
 import * as types from '../../store/types'
 import { mapGetters } from 'vuex';
+// import { Field, Form} from 'vee-validate'
+// import * as Yup from 'yup';
+import useValidate from '@vuelidate/core'
+import {required,maxLength,minLength} from '@vuelidate/validators'
 
     export default {
         name: 'Forget',
+         setup () {
+            return { v$: useValidate()}
+        },
         data () {
             return {
-                authData : {
-                    email: "",
-                }
+
+                firstname: '',
+            }
+        },
+        validations: {
+            firstname : {
+                required,
+                minLength: minLength(5),
+                maxLength : maxLength(10)
             }
         },
         computed : {
@@ -67,10 +100,24 @@ import { mapGetters } from 'vuex';
                     email: this.authData.email,
                 }
                 this.$store.dispatch(types.FORGOT_PASSWORD_ACTION , formData);
+            },
+            submitForm(){
+                alert('Form successfully');
+                console.log(this.v$)
             }
-        }
+            // validateEmail(value) {
+
+            //     if(!value){
+            //         return 'This field is required'
+            //     }
+
+            //     return true;
+            // }
+        },
     }
 </script>
 
 <style>
+
+    
 </style>

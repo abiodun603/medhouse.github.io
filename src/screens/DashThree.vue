@@ -11,7 +11,7 @@
                 </div>
             </div>
 
-            <div class="dashII__scroll dashIII__center">
+            <div class="dashII__scroll dashIII__center" style="display:none">
                 <div class="dashIII__container">
                     <div class="profile__name">
                         <div class="name">
@@ -68,7 +68,7 @@
                 </div>
             </div>
 
-            <!-- <div class="dashII__scroll dashIII__center">
+            <div class="dashII__scroll dashIII__center">
             <div class="dashIII__container">
                 <div class="profile__name">
                     <div class="name">
@@ -83,7 +83,7 @@
                 </div>
                 <div class="doc__check">
                     <div class="doc__toggle">
-                        <button class="btn active">Profile</button>
+                        <button class="btn btn-active">Profile</button>
                         <button class="btn">Bookings</button>
                         <button class="btn">Payment</button>
                     </div>
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                     <div class="rating">
-                        <img src="../assets/img/dashboard/Star.png" alt="" class="mr-1">
+                        <img src="../assets/img/dashboard/icons/Star.png" alt="" class="mr-1">
                         <p>460 Reviews (5.0)</p>
                     </div>
                     <div class="exp__container">
@@ -151,12 +151,12 @@
                 <div class="bio">
                     <h3>Bio</h3>
                     <p>
-                        Dr. Bassey is an orthopedic surgeon who believes that patient care should be a physician's first priority. He specializes in laparoscopic procedures that minimize... <span>Read more</span>
+                        Dr. Bassey is an orthopedic surgeon who believes that patient care should be a physician's first priority. He specializes in laparoscopic procedures that minimize... <span style="color:var(--purple); font-weight: 500">Read more</span>
                     </p>
                 </div>
                 <button class="btn ml-4"> Book Appointment</button>
             </div>
-        </div> -->
+        </div>
     
             <div class="dashII__scroll dashIII__right no__line">
                 <div class="">
@@ -194,15 +194,12 @@ export default {
         DashNavbar,
     },
     mounted() {
-          const btnLink = document.querySelectorAll('.btn')
-
-            function btnAction(){
-                btnLink.forEach(n => n.classList.remove('btn-active'))
-                this.classList.add('btn-active')
-            }
-
-            btnLink.forEach(n => n.addEventListener('click', btnAction))
-
+        const btnLink = document.querySelectorAll('.btn')
+        function btnAction(){
+            btnLink.forEach(n => n.classList.remove('btn-active'))
+            this.classList.add('btn-active')
+        }
+        btnLink.forEach(n => n.addEventListener('click', btnAction))
     },
 }
 </script>

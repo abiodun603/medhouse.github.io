@@ -80,7 +80,7 @@ body{
     font-size: var(--normal-font-size);
     background-color: var(--white);
 }
-h1,h2,h3{
+h1,h2,h3, p{
     margin: 0;
 }
 
@@ -239,6 +239,12 @@ label{
     grid-template-columns: 8% 85%;
     padding: 0 .4rem;
 }
+
+input.form-control:hover, input.form-control:active, input.form-control:focus{
+    outline:none !important;
+    border: none !important
+}
+
 .Name__boxShadow{
     border: none;
     background: var(--white);
@@ -261,10 +267,11 @@ label{
 
 .input-field input{
     background: none;
-    outline: none;
+    outline: 0;
     border: none;
+    outline: none;
     color:var(--lightblack);
-    line-height: 1;
+    line-height: 0;
     font-size: var(--normal-font-size);
 }
 
@@ -398,6 +405,7 @@ form .sign-up:hover{
     width: 185px;
     height: 43px;
     background-image: url(../img/logo2.png);
+    cursor: pointer
 }
 .menu-toggler{
     background: none;
@@ -430,9 +438,17 @@ form .sign-up:hover{
 }
 
 .navbar-menu .signin-button{
-    background-color: var(--dark-pink);
     padding: 10px 40px 10px 40px;
     border-radius: 15px;
+
+}
+
+.colorPink{
+    background-color: var(--dark-pink);
+}
+
+.colorPurple{
+    background-color: var(--purple);
 }
 
 .navbar-menu .signin-button:hover{
@@ -505,10 +521,6 @@ form .sign-up:hover{
 }
 /*============ Banner ==============*/
 .bannerr{
-    background-image: url(../img/bgBlue.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     height: 100vh;
     width: 100%;
     position: relative;
@@ -516,6 +528,20 @@ form .sign-up:hover{
     justify-content: space-between;
     align-items: center;
     padding-left: 4.0rem;
+}
+
+.bgimage2{
+    background-image: url(../img/bgPink.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.bgimage{
+    background-image: url(../img/bgBlue.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .bannerr .search-field{
@@ -603,14 +629,13 @@ form .sign-up:hover{
 
 input[type="submit"]{
     left: -5px;
-    top: 1px;
+    top: 2px;
     border-radius: 0 13px 13px 0px;
     width: 120px;
     height: 60px;
     border: none;
     outline: none;
     cursor: pointer;
-    background: var(--purple);
     color: var(--white);
     text-transform: lowercase;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
@@ -1087,7 +1112,6 @@ input[type="submit"]{
     margin:0px auto 0;
     perspective:1000px;
     cursor:default;
-    position:relative;
     box-shadow: 35px 45px 73px rgba(22, 16, 60, 0.07);
     border-radius: 27px !important;
 }
@@ -2348,3 +2372,22 @@ table.content-table:nth-child(1) tr:nth-child(2) td{
     }
 }
 
+.valid-feedback .feedback-icon,
+.invalid-feedback .feedback-icon {
+    position: absolute;
+     width: auto;
+    bottom: 10px;
+    right: 10px;
+    margin-top: 0;
+}
+
+/* .is-valid{
+    font-size: var(--big-font-size);
+    color: red,
+}
+
+.is-invalid{
+    font-size: var(--big-font-size);
+    color: red;
+    font-weight: bold;
+} */

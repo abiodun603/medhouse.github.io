@@ -13,12 +13,11 @@
                     <div class="icon cancel-btn">
                         <i class="fas fa-times"></i>
                     </div>
-                    <router-link to="/" tag="li" active-class="signin-button" exact>Explore</router-link>
+                    <router-link to="/" tag="li" class="signin-button" :class="{colorPink, colorPurple}" exact>Explore</router-link>
                     <a href="">English</a>
                     <a href="" class="active">Become an Expert</a>
-                    <router-link to="/register" tag="li" active-class="signin-button" v-if="!auth">Sign Up</router-link>
-                    <router-link to="/login" tag="li" active-class="signin-button" v-if="!auth">Sign In</router-link>
-                    <router-link to="/dashboard" tag="li" active-class="signin-button" v-if="auth">Dashboard</router-link>
+                    <router-link to="/register" tag="li" v-if="!auth">Sign Up</router-link>
+                    <router-link to="/dashone" tag="li" active-class="signin-button" v-if="!auth">Dashboard</router-link>
                     <button class="" @click="handleLogout()" v-if="auth">Logout</button>
                 </div>
             </div>
@@ -32,17 +31,39 @@ import * as types from '../store/types'
     
     export default {
         name: 'Navbar',
+        data() {
+            return {
+                colorPink: true,
+                colorPurple: false
+            }
+        },
         computed : {
             ...mapGetters({
                 auth: types.IS_AUTHENTICATED
             }),
         },
+        mounted() {
+            setTimeout(() => this.changeBackground(), 3200);
+        },
+        updated(){
+            setTimeout(() => this.changeBackground(), 3200);
+        },
         methods :{
             handleLogout() {
                 console.log('seen')
                 this.$store.dispatch(types.SIGN_OUT_ACTION)
-            }
-        }
+            },
+            changeBackground: function(){
+                if(this.colorPink) {
+                    this.colorPink = false,
+                    this.colorPurple = true
+                }
+                else if(this.colorPurple){
+                    this.colorPink = true,
+                    this.colorPurple=false
+                }
+            },
+        },
     }
 </script>
 <style>

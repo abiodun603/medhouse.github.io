@@ -7,7 +7,7 @@
         </div>
 
         <div class="sideBarWrapper">
-            <div class="sideBar sideBar__left">
+            <div class="sideBar sideBar__left" >
                 <div class="">
                     <img src="../assets/img/dashboard/1.png" alt="">
                     <div class="new__appointment">
