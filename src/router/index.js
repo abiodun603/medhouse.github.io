@@ -58,5 +58,5 @@ const routes = [
     },
 ]
 
-const router = createRouter({ history: createWebHistory(), routes })
+const router = createRouter({ history: createWebHistory("medhouse.github.io"), routes: routes })
 export default router
