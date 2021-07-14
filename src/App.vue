@@ -13,9 +13,10 @@ export default {
   components: {
     Signin
   },
+
   created() {
     this.$store.dispatch(types.AUTO_LOGIN_ACTION);
-  }
+  },
 }
 </script>
 

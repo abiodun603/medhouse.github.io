@@ -6,7 +6,7 @@
         <!-- ============== End of Right side Image =============== -->
 
         <!-- =========== Form  =================-->
-        <div class="container">
+        <div class="container" >
             <div class="form-container">
                 <div class="banner">
                     <img src="../../assets/img/logo.png" alt="" class="img-fluid logo" />
@@ -69,6 +69,13 @@
             </div>
             <!-- =============== End Form =============== -->
         </div>
+
+        <div class="ongoing_project">
+            <div>
+                Project is an ongoing project <br/><br/>
+                Please Kindly Check My Ongoing Project on Desktop Mode
+            </div>
+        </div>
     </div>
 </template>
 
@@ -86,6 +93,19 @@ export default {
             }
         }
     },
+    mounted() {
+        this.$nextTick(() => {
+            $(window).on('load resize', () => {
+                if (matchMedia('only screen and (max-width: 960px)').matches){
+                this.signIn = false
+                console.log(this.signIn)
+                }else {
+                this.signIn = true
+                console.log(this.signIn)
+                }
+            })
+        })
+    },
     computed : {
         ...mapGetters({
             getStatus : types.AUTH_STATE
@@ -99,7 +119,9 @@ export default {
             }
             this.$store.dispatch(types.LOGIN_ACTION , formData);
         }
-    }
+    },
+
+
 }
 </script>
 

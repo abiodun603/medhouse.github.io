@@ -17,6 +17,7 @@
                     <a href="">English</a>
                     <a href="" class="active">Become an Expert</a>
                     <router-link to="/register" tag="li" v-if="!auth">Sign Up</router-link>
+                    <router-link to="/login" tag="li" v-if="!auth">Sign In</router-link>
                     <router-link to="/dashone" tag="li" active-class="signin-button" v-if="!auth">Dashboard</router-link>
                     <button class="" @click="handleLogout()" v-if="auth">Logout</button>
                 </div>

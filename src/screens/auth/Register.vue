@@ -9,6 +9,7 @@
     <div class="container">
         <div class="form-container">
         <div class="banner">
+             <img src="../../assets/img/logo.png" alt="" class="img-fluid logo" />
             <!-- <img src="img/logo.png" alt="" class="img-fluid logo" /> -->
             <!-- <h1>Hi, Welcome Back</h1>
             <p class="discription">Start your journey as we find the best doctor for you.</p> -->
@@ -86,6 +87,12 @@
         <div class="form-image">
         <!-- <div class="overlay">
         </div> -->
+        </div>
+    </div>
+    <div class="ongoing_project">
+        <div>
+            Project is an ongoing project <br/><br/>
+            Please Kindly Check My Ongoing Project on Desktop Mode
         </div>
     </div>
   </div>

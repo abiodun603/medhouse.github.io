@@ -1,7 +1,6 @@
 <template>
     <div>
         <DashNavbar/>
-        <!-- <router-view/> -->
         <div class="sideBarWrapper">
             <div class="dashII__scroll dashII__left">
                 <h1>Doctors</h1>
@@ -234,7 +233,12 @@
                 </div>
             </div>
         </div>
-
+        <div class="ongoing_project">
+            <div>
+                Project is an ongoing project <br/><br/>
+                Please Kindly Check My Ongoing Project on Desktop Mode
+            </div>
+        </div>
     </div> 
 </template>
 
